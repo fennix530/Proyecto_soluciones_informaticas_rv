@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Notebook Lenovo", "precio": 1200000 },
+  { "id": 2, "nombre": "Impresora HP", "precio": 250000 },
+  { "id": 3, "nombre": "Router TP-Link", "precio": 45000 }
+]
