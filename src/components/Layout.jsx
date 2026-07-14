@@ -4,10 +4,10 @@ import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <div className="app">
       <Header />
       <NavBar />
-      <main style={{ flex: 1, padding: "1rem" }}>
+      <main className="container">
         {children}
       </main>
       <Footer />

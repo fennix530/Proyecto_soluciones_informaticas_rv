@@ -1,16 +1,14 @@
-# React + Vite
+# Soluciones Informáticas RV
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desarrollado en **React + Vite** para la materia de Talento Tech.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
+- Login de usuario
+- Visualización de productos desde la base de datos
+- Carrito de compras con suma de totales
+- Layout con Header, NavBar y Footer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Instalación
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/fennix530/soluciones-informaticas-rv.git
