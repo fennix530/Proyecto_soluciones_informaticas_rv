@@ -1,35 +1,23 @@
-import { createContext, useState, useEffect } from "react";
-import { auth } from "../assets/firebase";
-
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from "firebase/auth";
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
+  const login = (usuario, password) => {
+    // Lógica real con Firebase/Auth iría acá
+    if (usuario && password) {
+      setUser({ usuario });
+    }
+  };
 
-  const login = (email, password) =>
-    signInWithEmailAndPassword(auth, email, password);
-
-  const register = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password);
-
-  const logout = () => signOut(auth);
+  const logout = () => {
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
