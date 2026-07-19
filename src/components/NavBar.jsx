@@ -3,12 +3,15 @@ import CartWidget from "./CartWidget";
 
 export default function NavBar() {
   return (
-    <nav style={{ background: "#004080", padding: "1rem", color: "white" }}>
-      <Link to="/" style={{ marginRight: "1rem", color: "white" }}>Home</Link>
-      <Link to="/productos" style={{ marginRight: "1rem", color: "white" }}>Productos</Link>
-      <Link to="/carrito" style={{ marginRight: "1rem", color: "white" }}>
-        Carrito <CartWidget />
-      </Link>
+    <nav className="navbar">
+      <span className="logo">Soluciones Informáticas RV</span>
+      <div className="links">
+        <Link to="/">Home</Link>
+        <Link to="/productos">Productos</Link>
+        <Link to="/carrito">
+          Carrito <CartWidget />
+        </Link>
+      </div>
     </nav>
   );
 }

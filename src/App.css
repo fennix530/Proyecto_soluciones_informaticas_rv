@@ -29,11 +29,17 @@ html, body, #root {
   min-height: 100vh;
 }
 
+main.container {
+  flex: 1; /* ocupa el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* contenido arriba */
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  flex: 1;
 }
 
 /* NavBar */
@@ -224,7 +230,7 @@ nav span {
 /* Footer */
 .footer {
   background: var(--color-footer);
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
   color: white;
   margin-top: auto;
@@ -232,6 +238,23 @@ nav span {
 
 .footer p {
   margin: 0;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer .cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer .card {
+  background: #333;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   font-weight: bold;
 }
 
@@ -246,5 +269,9 @@ nav span {
   }
   .productos-grid {
     grid-template-columns: 1fr;
+  }
+  .footer .cards {
+    flex-direction: column;
+    align-items: center;
   }
 }
