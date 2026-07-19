@@ -17,27 +17,15 @@ const Item = ({ producto, onDelete, onViewDetail }) => {
         />
       )}
 
-      {/* Botón para agregar al carrito */}
-      <button 
-        onClick={() => addToCart(producto)} 
-        style={{ backgroundColor: "green", color: "white", marginRight: "0.5rem" }}
-      >
+      <button onClick={() => addToCart(producto)} style={{ backgroundColor: "green", color: "white", marginRight: "0.5rem" }}>
         🛒 Agregar al carrito
       </button>
 
-      {/* Botón para ver detalle */}
-      <button 
-        onClick={() => onViewDetail(producto)} 
-        style={{ backgroundColor: "blue", color: "white", marginRight: "0.5rem" }}
-      >
+      <button onClick={() => onViewDetail(producto)} style={{ backgroundColor: "blue", color: "white", marginRight: "0.5rem" }}>
         Ver detalle
       </button>
 
-      {/* Botón para eliminar de la BD */}
-      <button 
-        onClick={() => onDelete(producto.id)} 
-        style={{ backgroundColor: "red", color: "white" }}
-      >
+      <button onClick={() => onDelete(producto.id)} style={{ backgroundColor: "red", color: "white" }}>
         Eliminar
       </button>
     </div>

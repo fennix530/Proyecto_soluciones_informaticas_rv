@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
 const Carrito = () => {
-  const { cart, removeFromCart, clearCart, totalPrice } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart, clearCart, totalPrice } = useContext(CartContext);
 
   if (cart.length === 0) {
     return <h2 style={{ textAlign: "center" }}>Tu carrito está vacío 🛒</h2>;
@@ -15,6 +15,8 @@ const Carrito = () => {
         {cart.map((item) => (
           <li key={item.id}>
             {item.nombre} - ${item.precio} x {item.cantidad}
+            <button onClick={() => removeFromCart(item.id)}>➖</button>
+            <button onClick={() => addToCart(item)}>➕</button>
             <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
           </li>
         ))}
