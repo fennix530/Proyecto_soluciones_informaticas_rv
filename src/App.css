@@ -44,8 +44,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
 nav a {
@@ -159,7 +159,7 @@ nav span {
 
 /* Botones específicos */
 .btn-add {
-  background: var(--color-accent);
+  background: var(--color-accent); /* verde */
   color: white;
 }
 .btn-add:hover {
@@ -167,7 +167,7 @@ nav span {
 }
 
 .btn-remove {
-  background: #dc3545;
+  background: #dc3545; /* rojo */
   color: white;
 }
 .btn-remove:hover {
@@ -175,7 +175,7 @@ nav span {
 }
 
 .btn-detail {
-  background: var(--color-secondary);
+  background: var(--color-secondary); /* azul */
   color: white;
 }
 .btn-detail:hover {
@@ -248,4 +248,3 @@ nav span {
     grid-template-columns: 1fr;
   }
 }
-
