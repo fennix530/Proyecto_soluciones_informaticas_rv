@@ -182,6 +182,32 @@ nav span {
   margin-top: 1rem;
 }
 
+.btn-add {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+.btn-add:hover {
+  background: var(--color-accent-hover);
+}
+
+.btn-remove {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 0.2rem;
+}
+.btn-remove:hover {
+  background: #a71d2a;
+}
+
 /* Footer */
 .footer {
   background: var(--color-footer);
@@ -209,3 +235,4 @@ nav span {
     grid-template-columns: 1fr;
   }
 }
+

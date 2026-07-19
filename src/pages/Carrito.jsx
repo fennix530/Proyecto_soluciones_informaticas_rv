@@ -9,20 +9,34 @@ const Carrito = () => {
   }
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="carrito-container">
       <h2>Productos en tu carrito</h2>
-      <ul>
-        {cart.map((item) => (
-          <li key={item.id}>
-            {item.nombre} - ${item.precio} x {item.cantidad}
-            <button onClick={() => removeFromCart(item.id)}>➖</button>
-            <button onClick={() => addToCart(item)}>➕</button>
-            <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-      <h3>Total: ${totalPrice}</h3>
-      <button onClick={clearCart}>Vaciar carrito</button>
+      <table className="carrito-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.map((item) => (
+            <tr key={item.id}>
+              <td>{item.nombre}</td>
+              <td>${item.precio}</td>
+              <td>{item.cantidad}</td>
+              <td>
+                <button className="btn-remove" onClick={() => removeFromCart(item.id)}>➖</button>
+                <button className="btn-add" onClick={() => addToCart(item)}>➕</button>
+                <button className="btn-remove" onClick={() => removeFromCart(item.id)}>Eliminar</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="carrito-total">Total: ${totalPrice}</div>
+      <button className="btn-remove" onClick={clearCart}>Vaciar carrito</button>
     </div>
   );
 };
