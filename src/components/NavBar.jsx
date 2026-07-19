@@ -4,6 +4,7 @@ import CartWidget from "./CartWidget";
 export default function NavBar() {
   return (
     <nav className="navbar">
+      <span className="logo"></span>
       <div className="links">
         <Link to="/">Home</Link>
         <Link to="/productos">Productos</Link>
