@@ -15,12 +15,12 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="login" element={<Login />} />
               <Route
-                path="/productos"
+                path="productos"
                 element={
                   <PrivateRoute>
                     <Productos />
@@ -28,15 +28,15 @@ function App() {
                 }
               />
               <Route
-                path="/carrito"
+                path="carrito"
                 element={
                   <PrivateRoute>
                     <Carrito />
                   </PrivateRoute>
                 }
               />
-            </Routes>
-          </Layout>
+            </Route>
+          </Routes>
         </BrowserRouter>
       </CartProvider>
     </AuthProvider>
