@@ -5,7 +5,7 @@ const Item = ({ producto, onDelete, onViewDetail }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <div className="card" style={{ padding: "1rem", margin: "1rem", border: "1px solid #ccc" }}>
+    <div className="producto-card">
       <h3>{producto.nombre}</h3>
       <p>Precio: ${producto.precio}</p>
       
@@ -17,15 +17,15 @@ const Item = ({ producto, onDelete, onViewDetail }) => {
         />
       )}
 
-      <button onClick={() => addToCart(producto)} style={{ backgroundColor: "green", color: "white", marginRight: "0.5rem" }}>
+      <button className="btn-add" onClick={() => addToCart(producto)}>
         🛒 Agregar al carrito
       </button>
 
-      <button onClick={() => onViewDetail(producto)} style={{ backgroundColor: "blue", color: "white", marginRight: "0.5rem" }}>
+      <button className="btn-detail" onClick={() => onViewDetail(producto)}>
         Ver detalle
       </button>
 
-      <button onClick={() => onDelete(producto.id)} style={{ backgroundColor: "red", color: "white" }}>
+      <button className="btn-remove" onClick={() => onDelete(producto.id)}>
         Eliminar
       </button>
     </div>

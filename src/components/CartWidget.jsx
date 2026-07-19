@@ -5,7 +5,7 @@ const CartWidget = () => {
   const { totalItems } = useContext(CartContext);
 
   return (
-    <span style={{ marginLeft: "0.5rem", fontWeight: "bold" }}>
+    <span className="cart-widget">
       🛒 {totalItems}
     </span>
   );

@@ -1,20 +1,35 @@
-import { useEffect, useState } from 'react';
-import Item from '../components/Item';
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-export default function ItemListContainer() {
-  const [productos, setProductos] = useState([]);
-
-  useEffect(() => {
-    fetch('/productos.json')
-      .then(res => res.json())
-      .then(data => setProductos(data));
-  }, []);
+const Item = ({ producto, onDelete, onViewDetail }) => {
+  const { addToCart } = useContext(CartContext);
 
   return (
-    <div>
-      {productos.map(prod => (
-        <Item key={prod.id} {...prod} />
-      ))}
+    <div className="producto-card">
+      <h3>{producto.nombre}</h3>
+      <p>Precio: ${producto.precio}</p>
+      
+      {producto.imagen && (
+        <img 
+          src={producto.imagen} 
+          alt={producto.nombre} 
+          style={{ width: "150px", marginBottom: "1rem" }} 
+        />
+      )}
+
+      <button className="btn-add" onClick={() => addToCart(producto)}>
+        🛒 Agregar al carrito
+      </button>
+
+      <button className="btn-detail" onClick={() => onViewDetail(producto)}>
+        Ver detalle
+      </button>
+
+      <button className="btn-remove" onClick={() => onDelete(producto.id)}>
+        Eliminar
+      </button>
     </div>
   );
-}
+};
+
+export default Item;

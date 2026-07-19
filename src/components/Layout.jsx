@@ -9,7 +9,7 @@ export default function Layout() {
       <Header />
       <NavBar />
       <main className="container">
-        <Outlet /> {/* Aquí se renderizan las páginas */}
+        <Outlet />
       </main>
       <Footer />
     </div>
