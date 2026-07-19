@@ -1,17 +1,45 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
-const Item = ({ producto }) => {
+const Item = ({ producto, onDelete, onViewDetail }) => {
   const { addToCart } = useContext(CartContext);
 
   return (
-    <div className="card">
+    <div className="card" style={{ padding: "1rem", margin: "1rem", border: "1px solid #ccc" }}>
       <h3>{producto.nombre}</h3>
-      <p>${producto.precio}</p>
+      <p>Precio: ${producto.precio}</p>
+      
       {producto.imagen && (
-        <img src={producto.imagen} alt={producto.nombre} style={{ width: "150px" }} />
+        <img 
+          src={producto.imagen} 
+          alt={producto.nombre} 
+          style={{ width: "150px", marginBottom: "1rem" }} 
+        />
       )}
-      <button onClick={() => addToCart(producto)}>Agregar al carrito</button>
+
+      {/* Botón para agregar al carrito */}
+      <button 
+        onClick={() => addToCart(producto)} 
+        style={{ backgroundColor: "green", color: "white", marginRight: "0.5rem" }}
+      >
+        🛒 Agregar al carrito
+      </button>
+
+      {/* Botón para ver detalle */}
+      <button 
+        onClick={() => onViewDetail(producto)} 
+        style={{ backgroundColor: "blue", color: "white", marginRight: "0.5rem" }}
+      >
+        Ver detalle
+      </button>
+
+      {/* Botón para eliminar de la BD */}
+      <button 
+        onClick={() => onDelete(producto.id)} 
+        style={{ backgroundColor: "red", color: "white" }}
+      >
+        Eliminar
+      </button>
     </div>
   );
 };
