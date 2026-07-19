@@ -13,7 +13,7 @@ const Item = ({ producto, onDelete, onViewDetail }) => {
         <img 
           src={producto.imagen} 
           alt={producto.nombre} 
-          style={{ width: "150px", marginBottom: "1rem" }} 
+          className="producto-img"
         />
       )}
 
