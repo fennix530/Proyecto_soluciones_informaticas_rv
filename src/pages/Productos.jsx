@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../assets/firebase";
 import { collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore";
+import { CartContext } from "../context/CartContext";
 
 export default function Productos() {
   const [productos, setProductos] = useState([]);
   const [nuevo, setNuevo] = useState({ nombre: "", precio: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { addToCart } = useContext(CartContext);
 
   // Leer productos desde Firestore
   const fetchProductos = async () => {
@@ -26,7 +28,7 @@ export default function Productos() {
     fetchProductos();
   }, []);
 
-  // Agregar producto
+  // Agregar producto al inventario
   const agregarProducto = async () => {
     if (!nuevo.nombre || nuevo.precio <= 0) {
       alert("El nombre es obligatorio y el precio debe ser mayor a 0");
@@ -41,7 +43,7 @@ export default function Productos() {
     }
   };
 
-  // Eliminar producto
+  // Eliminar producto del inventario
   const eliminarProducto = async (id) => {
     if (window.confirm("¿Seguro que quieres eliminar este producto?")) {
       try {
@@ -57,7 +59,7 @@ export default function Productos() {
     <div className="productos-container">
       <h1>Productos disponibles</h1>
 
-      {/* Formulario para agregar */}
+      {/* Formulario para agregar al inventario */}
       <div>
         <input
           placeholder="Nombre"
@@ -85,9 +87,16 @@ export default function Productos() {
             <div key={p.id} className="producto-card">
               <h3>{p.nombre}</h3>
               <p>${p.precio}</p>
+              
+              {/* Botón para carrito */}
+              <button onClick={() => addToCart(p)}>🛒 Agregar al carrito</button>
+
+              {/* Botón para ver detalle */}
               <Link to={`/producto/${p.id}`}>
                 <button>Ver detalle</button>
               </Link>
+
+              {/* Botón para eliminar de BD */}
               <button onClick={() => eliminarProducto(p.id)}>Eliminar</button>
             </div>
           ))}
