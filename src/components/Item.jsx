@@ -1,9 +1,19 @@
-export default function Item({ nombre, precio, onAdd }) {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
+const Item = ({ producto }) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
-    <div className="producto-card">
-      <h3>{nombre}</h3>
-      <p>${precio}</p>
-      <button onClick={onAdd}>Agregar al carrito</button>
+    <div className="card">
+      <h3>{producto.nombre}</h3>
+      <p>${producto.precio}</p>
+      {producto.imagen && (
+        <img src={producto.imagen} alt={producto.nombre} style={{ width: "150px" }} />
+      )}
+      <button onClick={() => addToCart(producto)}>Agregar al carrito</button>
     </div>
   );
-}
+};
+
+export default Item;
